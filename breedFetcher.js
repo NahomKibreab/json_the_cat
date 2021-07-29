@@ -1,7 +1,7 @@
 const request = require("request");
 const baseURL = "https://api.thecatapi.com/v1/breeds/search?q=";
 
-const fetchBreedDescription = function (breedName, callback) {
+const fetchBreedDescription = function(breedName, callback) {
   request(`${baseURL}${breedName}`, (error, response, body) => {
     if (error) {
       callback(error, null);
@@ -10,7 +10,7 @@ const fetchBreedDescription = function (breedName, callback) {
       if (data.length > 0) {
         callback(null, data[0].description);
       } else {
-        callback(null, `${breedName} is not found!`);
+        callback(null, null);
       }
     }
   });
